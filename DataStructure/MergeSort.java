@@ -1,58 +1,72 @@
 import java.util.*;
 public class MergeSort {
-  void merge(int arr[],int low,int mid,int high) {
-    int i=low;
-    int j=mid+1;
-    int k=low;
-    int left[] = new int[mid];
-    int right[] = new int[(arr.length-mid)];
-    while(i<mid && j<high) {
-      if(left[i] <= right[j]) {
-        arr[k] = left[i];
-        i++;
+  int [] merge(int left[],int right[]) {
+    int n = left.length+right.length;
+    int resLength = n;
+    int res[] = new int[n];
+    int indexL = 0;
+    int indexR = 0;
+    int indexRes = 0;
+
+    while(indexL<left.length && indexR<right.length) {
+      if(left[indexL] <= right[indexR]) {
+        res[indexRes] = left[indexL];
+        indexL++;
       }
       else {
-        arr[k] = right[j];
-        j++;
+        res[indexRes] = right[indexR];
+        indexR++;
       }
-      k++;
+      indexRes++;
     }
-    while(i < mid)
-      arr[k] = left[i];
-      i++;
-       k++;
-    while(j < high)
-      arr[k] = right[j];
-      j++;
-      k++;
+    while(indexL < left.length) {
+      res[indexRes] = left[indexL];
+      indexL++;
+      indexRes++;
+    }
+    while(indexR < right.length) {
+      res[indexRes] = right[indexR];
+      indexR++;
+      indexRes++;
+    }
+    return res;
   }
 
 
-  void mergesort(int arr[],int low,int high) {
-    int mid;
-    if(low<high) {
-      mid = (low+high)/2;
-      mergesort(arr,low,mid);
-      mergesort(arr,mid+1,high);
-      merge(arr,low,mid,high);
+  int[] mergesort(int arr[]) {
+    if(arr.length<=1) {
+      return arr;
     }
-  }
-
-  void printArray(int arr[]) {
-      int n =arr.length;
-      for(int i=0;i<n;i++) {
-          System.out.println(arr[i] +" ");
+    int n = arr.length;
+    int mid = n/2;
+    int left[] = new int[mid];
+    int right[] = new int[n-mid];
+    int res[] = new int[n];
+    for(int i=0;i<mid;i++) {
+      left[i] = arr[i];
+    }
+    int k = 0;
+    for(int j=mid;j<n;j++) {
+      if(k<right.length) {
+        right[k] = arr[j];
+        k++;
       }
+    }
+    left = mergesort(left);
+    right = mergesort(right);
+
+    res = merge(left,right);
+    return res;
   }
 
   public static void main(String ar[]) {
       MergeSort obj = new MergeSort();
-      int arr[] = {64,23,10,25,12};
-      int low = 1;
-      int high = arr.length;
-      obj.mergesort(arr,low,high);
+      int arr[] = {64,23,10,10,12,87,40};
+     arr = obj.mergesort(arr);
       System.out.println("Sorted array:");
-      obj.printArray(arr);
+      for(int i=0;i<arr.length;i++) {
+        System.out.println(arr[i]);
+      }
   }
 }
 
