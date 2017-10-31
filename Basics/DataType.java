@@ -1,6 +1,10 @@
 //Different Data types in java
 //vaiables 1.Local 2. instance 3. static
 //use int and String in place of Integer and String Object
+/*A public class has "public" visibility, which means that it is accessible to any class in any package,
+ while a class has "default" or "package" visibility, i.e.
+the class is accessible only to classes inside the same package.
+Also if you are working only on one package then there is no difference, you can use both.*/
 import java.util.*;
 public class DataType {
   public static void main(String arg[]) {
@@ -19,11 +23,33 @@ public class DataType {
 
     char a = 'R'; //character
     char ch[] = {'T','E','S','T'}; //or char[] ch = {};
+    /*class SumAverage {
+   public static void main(String[] args) {
+
+      int[] numbers = {2, -9, 0, 5, 12, -25, 22, 9, 8, 12};
+      int sum = 0;
+      Double average;
+
+     for (int number: numbers) {
+        sum += number;
+     }
+
+     int arrayLength = numbers.length;
+     average =  ((double)sum / (double)arrayLength);
+
+     System.out.println("Sum = " + sum);
+     System.out.println("Average = " + average);
+   }
+}*/
+
+
+//for (int i = 0; i &lt; N; i++)     ->&lt; (== <) less than and &gt; (== >) greater than
+//for (int i = 0; i &gt; N; i++)
 
     String name = "Rajat Jain"; //String literal - use more frequently
     String s = new String("Hello"); //String object
     String str[] = {"rajat","jain"};
-    String st[] = new String[2];
+    String st[] = new String[2]; //or String[] st ; st = new  String[]; or String[] st = {"good","Boy"};
     st[0] = "good";
     st[1] = "Boy";
 

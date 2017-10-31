@@ -1,6 +1,6 @@
 import java.util.*;
-public class test {
-  void partition(int arr[],int start,int end) {
+public class Test {
+  void partition(int a[],int start,int end) {
     int index[] = new int[end];
     int value = 0;
     int n = 0;
@@ -13,10 +13,10 @@ public class test {
       }
     }
     for(int k=0;k<n;k++)
-    System.out.print(index[i]);
+    System.out.print(index[k]);
   }
   public static void main(String ar[]) {
-      test obj = new test();
+      Test obj = new Test();
       Scanner sc = new Scanner(System.in);
       int n = sc.nextInt();
       int arr[] = new int[n];
