@@ -9,11 +9,13 @@ class StringTest {
         int i = 65;
 
         //return substring of a string
-        String char1 = s1.substring(0,1); //s1.substring(start,end)
-        System.out.println("First character of " +s1 +" is: "  + char1);
-
-        String char2 = s1.substring(3,7);
-        System.out.println(" character between 3 and 7 of " +s1 +" is: " + char2);
+        public class TestSubstring{  
+            public static void main(String args[]){  
+                String s="SachinTendulkar";  
+                System.out.println(s.substring(6));//Tendulkar  
+                System.out.println(s.substring(0,6));//Sachin  
+            }  
+        }  
 
         //ASCII Value of String
         String s1 = "AB";
@@ -50,11 +52,66 @@ class StringTest {
         int result = Integer.parseInt(number);
         System.out.println(result);
 
+        /*1...Compare Two numeric Strings Value (converting them into string)*/
+
+Code...
+ String s1 = "4";
+ String s2 = "34";
+ if(Integer.parseInt(s1) > Integer.parseInt(s2))
 
 
-        //square root of a number
-        double value =  12.87;
-        double sqrtValue = Math.sqrt(value);
+
+
+
+
+        /*4....Java String compare*/
+
+Solution 1: Java String comparison with the 'equals' method
+
+
+if (string1.equals(string2))
+
+
+Solution 2: String comparison with the 'equalsIgnoreCase' method
+
+
+String string1 = "foo";
+String string2 = "FOO";
+
+// java string compare while ignoring case
+if (string1.equalsIgnoreCase(string2))
+{
+  // this line WILL print
+  System.out.println("Ignoring case, the two strings are the same.")
+}
+
+
+
+Solution 3: Java String comparison with the 'compareTo' method
+
+
+String string1 = "foo bar";
+String string2 = "foo bar";
+
+// java string compare example
+if (string1.compareTo(string2) == 0)
+{
+  // this line WILL print
+  System.out.println("The two strings are the same.")
+}
+
+
+
+
+Note: Java String compare:  why “==” doesn’t work
+
+if (string1 == string2)
+{
+  // do something ...
+}
+
+However, unlike C++, Java does not let us overload operators like the == operator. The designers of the Java language intentionally made this design decision to simplify the language. While it seems counter-intuitive at first, once you realize that there is an equals method on the String class, it’s not a big deal.
+
     }
 }
 
