@@ -15,8 +15,8 @@ public class ArmstrongNumber {
   		System.out.println("sum " +sum);
   		System.out.println("num " +num);
   		if(sum == num)
-  			System.out.println("Yes");
+  			System.out.println("Armstrong Number");
   		else
-  				System.out.println("No");
+  				System.out.println("Not a ArmstrongNumber");
   }
 }
